@@ -20,6 +20,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   double currentWindSpeed = 0;
   double currentHumidity = 0;
   double currentPressure = 0;
+  double previousTemp = 0;
 
   TextEditingController cityController = TextEditingController();
 
@@ -155,16 +156,16 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   const SizedBox(
                     height: 12,
                   ),
-                  const SingleChildScrollView(
+                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        HourlyForcastCard(),
-                        HourlyForcastCard(),
-                        HourlyForcastCard(),
-                        HourlyForcastCard(),
-                        HourlyForcastCard(),
-                        HourlyForcastCard()
+                        HourlyForcastCard(title:'${currentTemp.toStringAsFixed(2)}',value: '10:00',),
+                        HourlyForcastCard(title: '${currentTemp.toStringAsFixed(3)}',value: '11:00',),
+                        HourlyForcastCard(title: '${currentTemp.toStringAsFixed(1)}',value: '12:00',),
+                        HourlyForcastCard(title: '${currentTemp.toStringAsFixed(2)}',value: '1:00',),
+                        HourlyForcastCard(title: '${currentTemp.toStringAsFixed(4)}',value: '2:00',),
+                        HourlyForcastCard(title: '${currentTemp.toStringAsFixed(2)}',value: '3:00',)
                       ],
                     ),
                   ),
